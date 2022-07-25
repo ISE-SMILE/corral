@@ -586,9 +586,8 @@ func (d *Driver) collectReducerMetrics(jId int, j *Job) {
 	if j.cacheSystem != nil {
 		fs = j.cacheSystem
 	}
-
 	// Determine the intermediate data files this reducer is responsible for
-	path := fs.Join(j.outputPath, "map-bin%*")
+	path := fs.Join(j.outputPath, "map-bin*")
 	files, err := fs.ListFiles(path)
 	if err != nil {
 		log.Debugf("failed to collect reduce metrics cause: %+v", err)

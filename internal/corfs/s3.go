@@ -3,13 +3,14 @@ package corfs
 import (
 	"errors"
 	"fmt"
-	"github.com/ISE-SMILE/corral/api"
 	"io"
 	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
+
+	"github.com/ISE-SMILE/corral/api"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"

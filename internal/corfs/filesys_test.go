@@ -3,15 +3,16 @@ package corfs
 import (
 	"testing"
 
+	"github.com/ISE-SMILE/corral/api"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestInitFilesystem(t *testing.T) {
-	fs, _ := InitFilesystem(S3)
+	fs, _ := InitFilesystem(api.S3)
 	assert.NotNil(t, fs)
 	assert.IsType(t, &S3FileSystem{}, fs)
 
-	fs, _ = InitFilesystem(Local)
+	fs, _ = InitFilesystem(api.Local)
 	assert.NotNil(t, fs)
 	assert.IsType(t, &LocalFileSystem{}, fs)
 }

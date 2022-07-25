@@ -1,14 +1,15 @@
 package corcache
 
 import (
-	"github.com/ISE-SMILE/corral/api"
 	"testing"
+
+	"github.com/ISE-SMILE/corral/api"
 )
 
 func Test_InitCache(t *testing.T) {
 	tests := []struct {
-		input CacheSystemType
-	}{{Local}}
+		input api.CacheSystemType
+	}{{api.InMemory}}
 
 	for i, test := range tests {
 		cs, err := NewCacheSystem(test.input)
@@ -24,9 +25,9 @@ func Test_InitCache(t *testing.T) {
 func Test_CacheSystemTypes(t *testing.T) {
 	tests := []struct {
 		impl     api.CacheSystem
-		expected CacheSystemType
+		expected api.CacheSystemType
 	}{
-		{NewLocalInMemoryProvider(10), Local},
+		{NewLocalInMemoryProvider(10), api.InMemory},
 		//TODO: add each new CachImpl here
 	}
 
